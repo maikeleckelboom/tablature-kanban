@@ -11,21 +11,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class BoardFactory extends Factory
 {
-    private const TITLES = [
-        'Personal',
-        'Work',
-        'Family',
-        'Hobbies',
-        'ProjectX',
-        'TeamFlow Management',
-        'SwiftTask Board',
-        'ProFlow Workspace',
-        'ProjectX Board',
-        'KanView Pro Suite',
-        'TaskHarbor Center',
-        'ProjectPulse',
-    ];
-
     /**
      * Define the model's default state.
      *
@@ -34,7 +19,7 @@ class BoardFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->randomElement(self::TITLES),
+            'title' => $this->faker->word,
             'user_id' => User::factory()->create(),
         ];
     }

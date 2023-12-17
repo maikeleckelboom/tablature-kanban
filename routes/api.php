@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'kanban', 'as' => 'kanban.'], function () {
-    Route::resource('boards', BoardController::class);
+    Route::resource('boards', BoardController::class)->only(['index', 'show', 'store', 'destroy']);
     Route::resource('columns', ColumnController::class)->except(['index', 'show','update']);
     Route::resource('columns.cards', CardController::class)->except(['index', 'show']);
     Route::put('cards/reorder', CardsReorderController::class)->name('cards.reorder');

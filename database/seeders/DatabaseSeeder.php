@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
 
         $user = User::factory()->create([
             'email' => 'test@gmail.com',
@@ -22,5 +21,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->callWith(BoardSeeder::class, ['user_id' => $user->id]);
+
     }
 }

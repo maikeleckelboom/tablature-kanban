@@ -2,19 +2,24 @@
 
 namespace Database\Seeders\Kanban;
 
-use App\Models\Kanban\Column;
+use Database\Factories\Kanban\ColumnFactory;
 use Illuminate\Database\Seeder;
 
 class ColumnSeeder extends Seeder
 {
+    private const TITLES = [
+        'To Do',
+        'In Progress',
+        'Done',
+    ];
 
     /**
      * Run the database seeds.
      */
-    public function run($board): void
+    public function run($board_id): void
     {
-        Column::factory(3)->create([
-            'board_id' => $board,
+        ColumnFactory::new()->create([
+            'board_id' => $board_id,
         ]);
     }
 }

@@ -10,12 +10,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ColumnFactory extends Factory
 {
-    private const TITLES = [
-        'To Do',
-        'In Progress',
-        'Done',
-        'Misc',
-    ];
 
     /**
      * Define the model's default state.
@@ -25,7 +19,7 @@ class ColumnFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->randomElement(self::TITLES),
+            'title' => $this->faker->word,
             'board_id' => BoardFactory::new()->create()->id,
         ];
     }
