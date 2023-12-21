@@ -27,7 +27,11 @@ class ColumnStoreRequest extends FormRequest
         ];
     }
 
-    public function prepareForValidation()
+    /**
+     * Prepare the data for validation.
+     * @return ColumnStoreRequest
+     */
+    public function prepareForValidation(): ColumnStoreRequest
     {
         return $this->merge([
             'board_id' => $this->board?->id,

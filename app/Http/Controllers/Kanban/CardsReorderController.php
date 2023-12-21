@@ -14,8 +14,7 @@ class CardsReorderController extends Controller
         $validated = $request->validated();
 
         $data = collect($validated['columns'])
-            ->recursive()
-            ->map(fn($column) => $column['cards']
+            ->map(fn($column) => collect($column['cards'])
                 ->map(fn($card) => [
                     'id' => $card['id'],
                     'position' => $card['position'],

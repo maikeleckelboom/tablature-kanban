@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Kanban;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Kanban\CardStoreRequest;
+use App\Http\Resources\Kanban\CardResource;
 use App\Models\Kanban\Card;
 use App\Models\Kanban\Column;
 use Illuminate\Http\JsonResponse;
@@ -14,7 +15,7 @@ class CardController extends Controller
     /**
      * @param CardStoreRequest $request
      * @param Column $column
-     * @return JsonResponse
+     * @return JsonResponse<CardResource>
      */
     public function store(CardStoreRequest $request, Column $column): JsonResponse
     {

@@ -14,7 +14,21 @@ class BoardSeeder extends Seeder
         'Family',
     ];
 
+    private const CARD_CONTENT = [
+        'Plan and execute marketing campaign for Q1.',
+        'Review and optimize team processes for better efficiency.',
+        'Sprint planning for the upcoming development cycle.',
+        'Track and analyze project progress for client presentation.',
+        'Design and implement UI improvements for the mobile app.',
+        'Collaborate with cross-functional teams on the new feature rollout.',
+        'Integrate task management with external project tools.',
+        'Monitor project health and address any blockers in the workflow.',
+        'Coordinate with stakeholders for user acceptance testing (UAT).',
+        'Upgrade Kanban board with advanced reporting and analytics features.',
+    ];
+
     /**
+     *
      * Run the database seeds.
      */
     public function run($user_id): void
@@ -33,20 +47,11 @@ class BoardSeeder extends Seeder
 
             $columns->each(function ($column) {
 
-                $content = [
-                    ['content' => 'Plan and execute marketing campaign for Q1.'],
-                    ['content' => 'Review and optimize team processes for better efficiency.',],
-                    ['content' => 'Sprint planning for the upcoming development cycle.',],
-                    ['content' => 'Track and analyze project progress for client presentation.',],
-                    ['content' => 'Design and implement UI improvements for the mobile app.',],
-                ];
-
                 foreach (range(1, rand(3, 5)) as $i) {
                     $column->cards()->create([
-                        'content' => $content[array_rand($content)]['content']
+                        'content' => self::CARD_CONTENT[array_rand(self::CARD_CONTENT)],
                     ]);
                 }
-
             });
 
         }
